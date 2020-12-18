@@ -15,6 +15,25 @@ public class Num11 {
         return max;
     }
 
+    public int maxArea2(int[] height) {
+        int n=height.length;
+        int x=n-1;
+        int y=0;
+        int max=(n-1)*Math.min(height[n-1],height[0]);
+        while(y<x){
+            if(height[x]>height[y]){
+                y++;
+            }else{
+                x--;
+            }
+            int area=Math.min(height[x],height[y])*(x-y);
+            if(max<area){
+                max=area;
+            }
+        }
+        return max;
+    }
+
     public static void main(String[] args) {
         int[] a={1,8,6,2,5,4,8,3,7};
         System.out.println(maxArea(a));
