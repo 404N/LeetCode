@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class Num3 {
-    public int lengthOfLongestSubstring(String s) {
+    static public int lengthOfLongestSubstring(String s) {
         //最大长度
         int max = 0;
         //记录用子串
