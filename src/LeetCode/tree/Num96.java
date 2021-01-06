@@ -4,6 +4,8 @@ public class Num96 {
     public int numTrees(int n) {
         return dp(n);
     }
+
+    //递归
     public int dp(int n){
         if(n==0||n==1){
             return 1;
@@ -15,6 +17,7 @@ public class Num96 {
         return count;
     }
 
+    //循环
     public int numTrees2(int n) {
         int a[]=new int[n+1];
         a[0]=1;
@@ -27,6 +30,7 @@ public class Num96 {
         return a[n];
     }
 
+    //数学公式
     public int numTrees3(int n) {
         long count=1;
         for(int i=0;i<n;i++){
