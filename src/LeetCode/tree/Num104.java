@@ -7,7 +7,7 @@ public class Num104 {
         }
         int left=maxDepth(root.left)+1;
         int right=maxDepth(root.right)+1;
-        return left>right?left:right;
+        return Math.max(left, right);
     }
 
 }
