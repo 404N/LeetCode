@@ -45,20 +45,44 @@ public class Num105 {
                     break;
                 }
             }
-            if(num!=-1){
+            if (num != -1) {
                 break;
             }
         }
-        if (num>-1&&start < num) {
+        if (num > -1 && start < num) {
             node.left = getChild(preorder, inorder, idx + 1, start, num);
         } else {
             node.left = null;
         }
-        if (num>-1&&num + 1 < end) {
+        if (num > -1 && num + 1 < end) {
             node.right = getChild(preorder, inorder, idx + 1, num + 1, end);
         } else {
             node.right = null;
         }
+        return node;
+    }
+
+    public TreeNode buildTree2(int[] preorder, int[] inorder) {
+        Map<Integer, Integer> map = new HashMap<>();
+        int n = inorder.length;
+        for (int i = 0; i < n; i++) {
+            map.put(inorder[i], i);
+        }
+        return getChild2(preorder, inorder, 0, n - 1, 0, n - 1, map);
+    }
+
+    public TreeNode getChild2(int[] preorder, int[] inorder, int startLeft, int endLeft, int start, int end, Map<Integer, Integer> map) {
+        if (startLeft > endLeft) {
+            return null;
+        }
+        TreeNode node = new TreeNode(preorder[startLeft]);
+        int target = map.get(preorder[startLeft]);
+        int leftSize = target - start;
+        if (leftSize < 1) {
+            return null;
+        }
+        node.left = getChild2(preorder, inorder, startLeft + 1, startLeft + leftSize, start, target - 1, map);
+        node.right = getChild2(preorder, inorder, startLeft + leftSize, endLeft, target + 1, end, map);
         return node;
     }
 
