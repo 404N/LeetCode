@@ -78,11 +78,8 @@ public class Num105 {
         TreeNode node = new TreeNode(preorder[startLeft]);
         int target = map.get(preorder[startLeft]);
         int leftSize = target - start;
-        if (leftSize < 1) {
-            return null;
-        }
         node.left = getChild2(preorder, inorder, startLeft + 1, startLeft + leftSize, start, target - 1, map);
-        node.right = getChild2(preorder, inorder, startLeft + leftSize, endLeft, target + 1, end, map);
+        node.right = getChild2(preorder, inorder, startLeft + leftSize+1, endLeft, target + 1, end, map);
         return node;
     }
 
@@ -90,7 +87,7 @@ public class Num105 {
         int a[] = {3, 9, 20, 15, 7};
         int b[] = {9, 3, 15, 20, 7};
         Num105 num105 = new Num105();
-        num105.buildTree(a, b);
+        num105.buildTree2(a, b);
     }
 
 }
