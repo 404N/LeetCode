@@ -38,6 +38,32 @@ package LeetCode.tree;
 public class Num108 {
     public TreeNode sortedArrayToBST(int[] nums) {
         TreeNode node=new TreeNode();
+        int n=nums.length;
+        if(n<=0){
+            return null;
+        }
+        if(n==1){
+            node.val=nums[0];
+            return node;
+        }
+        node.val=nums[n/2];
+        int[] left=new int[n/2];
+        int[] right=new int[n-n/2-1];
+        for(int i=0;i<n;i++){
+            if(i<n/2){
+                left[i]=nums[i];
+            }else if(i>n/2){
+                right[i-1-n/2]=nums[i];
+            }
+        }
+        node.left=sortedArrayToBST(left);
+        node.right=sortedArrayToBST(right);
         return node;
+    }
+
+    public static void main(String[] args) {
+        int[] nums={-10,-3,0,5,9};
+        Num108 num108=new Num108();
+        num108.sortedArrayToBST(nums);
     }
 }
