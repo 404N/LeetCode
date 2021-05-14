@@ -5,8 +5,8 @@ import java.util.*;
 public class Num113 {
 
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
-        List<List<Integer>> list= new ArrayList<>();
-        List<Integer> num=new ArrayList<>();
+        List<List<Integer>> list= new LinkedList<>();
+        List<Integer> num=new LinkedList<>();
         if(targetSum-root.val==0&&root.left==null&&root.right==null){
             num.add(root.val);
             list.add(num);
