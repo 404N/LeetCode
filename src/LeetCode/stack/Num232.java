@@ -15,31 +15,27 @@ public class Num232 {
 
     /** Removes the element from in front of queue and returns that element. */
     public int pop() {
-        while(!stack.isEmpty()){
-            stack2.push(stack.pop());
+        if(stack2.isEmpty()){
+            while(!stack.isEmpty()){
+                stack2.push(stack.pop());
+            }
         }
-        int temp=stack2.pop();
-        while(!stack2.isEmpty()){
-            stack.push(stack2.pop());
-        }
-        return temp;
+        return stack2.pop();
     }
 
     /** Get the front element. */
     public int peek() {
-        while(!stack.isEmpty()){
-            stack2.push(stack.pop());
+        if(stack2.isEmpty()){
+            while(!stack.isEmpty()){
+                stack2.push(stack.pop());
+            }
         }
-        int temp=stack2.peek();
-        while(!stack2.isEmpty()){
-            stack.push(stack2.pop());
-        }
-        return temp;
+        return stack2.peek();
     }
 
     /** Returns whether the queue is empty. */
     public boolean empty() {
-        return stack.isEmpty();
+        return stack2.isEmpty()&&stack.isEmpty();
     }
 
     public static void main(String[] args) {
