@@ -13,7 +13,7 @@ public class Num10 {
                         mark[i][j] = mark[i - 1][j - 1];
                     }
                 } else {
-                    mark[i][j]=mark[i][j-2];
+                    mark[i][j]=mark[i][j-1];
                     if (matches(s, p, i, j-1)) {
                         mark[i][j] = mark[i - 1][j]||mark[i][j];
                     }
