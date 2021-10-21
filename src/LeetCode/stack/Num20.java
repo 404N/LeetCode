@@ -3,7 +3,7 @@ package LeetCode.stack;
 import java.util.Stack;
 
 public class Num20 {
-    static public boolean isValid(String s) {
+    public boolean isValid(String s) {
         int n = s.length();
         if (n %2== 1) {
             return true;
@@ -45,6 +45,7 @@ public class Num20 {
 
     public static void main(String[] args) {
         String s = "(])";
-        System.out.println(isValid(s));
+        Num20 num20=new Num20();
+        System.out.println(num20.isValid(s));
     }
 }
