@@ -1,8 +1,6 @@
 package jvm;
 
 
-import sun.jvm.hotspot.oops.Method;
-
 /**
  * VM Args：-XX:PermSize=10M -XX:MaxPermSize=10M
  * @author zzm
